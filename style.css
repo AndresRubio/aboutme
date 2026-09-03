@@ -5,9 +5,11 @@
   --bg:      #fdfdfc;
   --fg:      #1a1a1a;
   --muted:   #6b6b6b;
+  --faint:   #8e8e8e;
   --rule:    #e5e3e0;
+  --tint:    #f5f2f0;
   --accent:  #c2185b;
-  --measure: 42rem;
+  --measure: 44rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,7 +17,9 @@
     --bg:     #131313;
     --fg:     #e8e6e3;
     --muted:  #9a9a9a;
+    --faint:  #7d7d7d;
     --rule:   #2b2b2b;
+    --tint:   #1c1b1b;
     --accent: #ff7aa8;
   }
 }
@@ -46,29 +50,40 @@ main {
 .masthead { margin-bottom: 4rem; }
 
 h1 {
-  font-size: 2.1rem;
-  line-height: 1.15;
-  letter-spacing: -0.022em;
+  font-size: 2.2rem;
+  line-height: 1.12;
+  letter-spacing: -0.024em;
   font-weight: 650;
   margin: 0;
 }
 
 .tagline {
-  margin: 0.35rem 0 0;
+  margin: 0.3rem 0 0;
   font-size: 1.05rem;
   color: var(--accent);
   font-weight: 550;
-  letter-spacing: 0.005em;
+}
+
+.lead {
+  margin: 1.1rem 0 0;
+  font-size: 1.06rem;
+  line-height: 1.55;
+  max-width: 34rem;
 }
 
 .location {
-  margin: 0.1rem 0 0;
+  margin: 0.9rem 0 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+}
+
+.available {
+  color: var(--accent);
+  font-weight: 550;
 }
 
 .links {
-  margin-top: 1.4rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.4rem;
@@ -100,36 +115,96 @@ h3 {
 .org { color: var(--accent); }
 .sep { color: var(--muted); font-weight: 400; }
 
-.role { margin-bottom: 2.6rem; }
-.role:last-child { margin-bottom: 0; }
-
 .meta {
   margin: 0.2rem 0 0.85rem;
   font-size: 0.85rem;
   color: var(--muted);
 }
 
-.dot { padding: 0 0.15rem; opacity: 0.6; }
-
-.subhead {
-  margin: 1.1rem 0 0.4rem;
-  font-weight: 550;
-  font-size: 0.95rem;
-}
+.dot { padding: 0 0.2rem; opacity: 0.55; }
 
 p { margin: 0 0 0.85rem; }
 
 ul { margin: 0 0 0.85rem; padding-left: 1.15rem; }
+li { margin-bottom: 0.28rem; font-size: 0.94rem; }
 
-li { margin-bottom: 0.28rem; }
+ul.plain { list-style: none; padding: 0; }
 
-.role ul li,
-section > ul li {
-  font-size: 0.94rem;
-  color: var(--fg);
+/* ---------- focus / skills ---------- */
+
+.skills {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1rem 1.4rem;
+  align-items: start;
 }
 
+.skills dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding-top: 0.22rem;
+  letter-spacing: 0.01em;
+}
+
+.skills dd { margin: 0; }
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chips li {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  padding: 0.16rem 0.55rem;
+  border-radius: 0.9rem;
+  background: var(--tint);
+  color: var(--fg);
+  white-space: nowrap;
+}
+
+/* the first group is the headline skill set — give it the accent */
+.skills dd:first-of-type .chips li {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ---------- selected project ---------- */
+
+.project {
+  border-left: 2px solid var(--accent);
+  background: var(--tint);
+  border-radius: 0 4px 4px 0;
+  padding: 1.3rem 1.5rem 1.1rem;
+}
+
+.project > p:last-child { margin-bottom: 0; }
+.project ul { margin-bottom: 1rem; }
+
+/* ---------- experience ---------- */
+
+.role { margin-bottom: 2.6rem; }
+.role:last-child { margin-bottom: 0; }
+
 .role ul { color: var(--muted); }
+.role ul li { color: var(--fg); }
+
+.stack {
+  margin: 0.9rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.stack span { color: var(--faint); padding: 0 0.15rem; }
 
 /* ---------- education timeline ---------- */
 
@@ -152,7 +227,7 @@ section > ul li {
 
 .entry { font-size: 0.94rem; }
 .entry strong { font-weight: 550; }
-.inst { color: var(--muted); }
+.inst { color: var(--muted); font-weight: 400; }
 
 /* ---------- links ---------- */
 
@@ -188,11 +263,16 @@ footer p { margin: 0; }
 @media (max-width: 34rem) {
   body { font-size: 16px; }
   main { padding: 3rem 1.25rem 4rem; }
-  h1 { font-size: 1.7rem; }
+  h1 { font-size: 1.75rem; }
+  .lead { font-size: 1rem; }
   .masthead { margin-bottom: 3rem; }
   .links { gap: 0.4rem 1.1rem; }
   .timeline li { flex-direction: column; gap: 0.1rem; }
   .year { flex: none; }
+  .skills { grid-template-columns: 1fr; gap: 0.35rem; }
+  .skills dt { padding-top: 0.6rem; }
+  .skills dt:first-child { padding-top: 0; }
+  .project { padding: 1.1rem 1.1rem 0.9rem; }
 }
 
 /* ---------- print: this is the downloadable CV ---------- */
@@ -202,19 +282,35 @@ footer p { margin: 0; }
     --bg: #fff;
     --fg: #000;
     --muted: #444;
+    --faint: #888;
     --rule: #ccc;
+    --tint: transparent;
     --accent: #b0004e;
   }
-  body { font-size: 10.5pt; line-height: 1.45; }
+  body { font-size: 10pt; line-height: 1.42; }
   main { max-width: none; padding: 0; }
   h1 { font-size: 20pt; }
   h2 { font-size: 8pt; margin-bottom: 0.9rem; }
-  section { margin-bottom: 1.6rem; }
-  .masthead { margin-bottom: 1.8rem; }
-  .role { margin-bottom: 1.2rem; }
-  .role, .timeline li { break-inside: avoid; page-break-inside: avoid; }
+  section { margin-bottom: 1.5rem; }
+  .masthead { margin-bottom: 1.6rem; }
+  .lead { font-size: 10.5pt; margin-top: 0.6rem; }
+  .location { margin-top: 0.5rem; }
+  .links { margin-top: 0.7rem; }
+  .role { margin-bottom: 1.1rem; }
+  .role, .timeline li, .project { break-inside: avoid; page-break-inside: avoid; }
   h2, h3 { break-after: avoid; page-break-after: avoid; }
+  .project { border-left: 2px solid var(--accent); padding: 0 0 0 0.8rem; }
+  .chips li,
+  .skills dd:first-of-type .chips li {
+    background: none;
+    color: var(--fg);
+    padding: 0;
+    font-weight: 400;
+  }
+  .chips { gap: 0 0.55rem; }
+  .chips li::after { content: " ·"; color: var(--faint); }
+  .chips li:last-child::after { content: ""; }
   a { color: var(--fg); border-bottom: none; }
-  .links a { color: var(--accent); }
+  .links a, .org, .year, .available { color: var(--accent); }
   footer { display: none; }
 }
