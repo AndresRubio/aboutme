@@ -1,0 +1,220 @@
+/* Andrés Rubio del Saz — CV
+   Minimal, content-first. One accent, carried from the printed CV. */
+
+:root {
+  --bg:      #fdfdfc;
+  --fg:      #1a1a1a;
+  --muted:   #6b6b6b;
+  --rule:    #e5e3e0;
+  --accent:  #c2185b;
+  --measure: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:     #131313;
+    --fg:     #e8e6e3;
+    --muted:  #9a9a9a;
+    --rule:   #2b2b2b;
+    --accent: #ff7aa8;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 6rem;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead { margin-bottom: 4rem; }
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  font-weight: 650;
+  margin: 0;
+}
+
+.tagline {
+  margin: 0.35rem 0 0;
+  font-size: 1.05rem;
+  color: var(--accent);
+  font-weight: 550;
+  letter-spacing: 0.005em;
+}
+
+.location {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.links {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- sections ---------- */
+
+section { margin-bottom: 3.5rem; }
+
+h2 {
+  font-size: 0.76rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.org { color: var(--accent); }
+.sep { color: var(--muted); font-weight: 400; }
+
+.role { margin-bottom: 2.6rem; }
+.role:last-child { margin-bottom: 0; }
+
+.meta {
+  margin: 0.2rem 0 0.85rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.dot { padding: 0 0.15rem; opacity: 0.6; }
+
+.subhead {
+  margin: 1.1rem 0 0.4rem;
+  font-weight: 550;
+  font-size: 0.95rem;
+}
+
+p { margin: 0 0 0.85rem; }
+
+ul { margin: 0 0 0.85rem; padding-left: 1.15rem; }
+
+li { margin-bottom: 0.28rem; }
+
+.role ul li,
+section > ul li {
+  font-size: 0.94rem;
+  color: var(--fg);
+}
+
+.role ul { color: var(--muted); }
+
+/* ---------- education timeline ---------- */
+
+.timeline { list-style: none; padding: 0; margin: 0; }
+
+.timeline li {
+  display: flex;
+  gap: 1.1rem;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.year {
+  flex: 0 0 4.2rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.entry { font-size: 0.94rem; }
+.entry strong { font-weight: 550; }
+.inst { color: var(--muted); }
+
+/* ---------- links ---------- */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: border-color 0.15s ease;
+}
+
+a:hover { border-bottom-color: var(--accent); }
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+footer p { margin: 0; }
+
+/* ---------- narrow screens ---------- */
+
+@media (max-width: 34rem) {
+  body { font-size: 16px; }
+  main { padding: 3rem 1.25rem 4rem; }
+  h1 { font-size: 1.7rem; }
+  .masthead { margin-bottom: 3rem; }
+  .links { gap: 0.4rem 1.1rem; }
+  .timeline li { flex-direction: column; gap: 0.1rem; }
+  .year { flex: none; }
+}
+
+/* ---------- print: this is the downloadable CV ---------- */
+
+@media print {
+  :root {
+    --bg: #fff;
+    --fg: #000;
+    --muted: #444;
+    --rule: #ccc;
+    --accent: #b0004e;
+  }
+  body { font-size: 10.5pt; line-height: 1.45; }
+  main { max-width: none; padding: 0; }
+  h1 { font-size: 20pt; }
+  h2 { font-size: 8pt; margin-bottom: 0.9rem; }
+  section { margin-bottom: 1.6rem; }
+  .masthead { margin-bottom: 1.8rem; }
+  .role { margin-bottom: 1.2rem; }
+  .role, .timeline li { break-inside: avoid; page-break-inside: avoid; }
+  h2, h3 { break-after: avoid; page-break-after: avoid; }
+  a { color: var(--fg); border-bottom: none; }
+  .links a { color: var(--accent); }
+  footer { display: none; }
+}
