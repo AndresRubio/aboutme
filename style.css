@@ -216,6 +216,19 @@ ul.plain { list-style: none; padding: 0; }
 .role ul { color: var(--muted); }
 .role ul li { color: var(--fg); }
 
+.team {
+  margin: 1.2rem 0 0.5rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.team strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.role > .team:first-of-type { margin-top: 0.4rem; }
+
 .stack {
   margin: 0.9rem 0 0;
   font-size: 0.8rem;
@@ -319,6 +332,7 @@ footer p { margin: 0; }
   .location { margin-top: 0.5rem; }
   .links { margin-top: 0.7rem; }
   .role { margin-bottom: 1.1rem; }
+  .team { margin: 0.7rem 0 0.35rem; }
   .role, .timeline li, .project { break-inside: avoid; page-break-inside: avoid; }
   h2, h3 { break-after: avoid; page-break-after: avoid; }
   .project { border-left: 2px solid var(--accent); padding: 0 0 0 0.8rem; }
