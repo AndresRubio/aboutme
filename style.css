@@ -47,7 +47,26 @@ main {
 
 /* ---------- masthead ---------- */
 
-.masthead { margin-bottom: 4rem; }
+.masthead {
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.masthead-text { flex: 1 1 auto; min-width: 0; }
+
+.portrait {
+  flex: 0 0 auto;
+  width: 138px;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--rule);
+  margin-top: 0.4rem;
+}
 
 h1 {
   font-size: 2.2rem;
@@ -273,6 +292,8 @@ footer p { margin: 0; }
   .skills dt { padding-top: 0.6rem; }
   .skills dt:first-child { padding-top: 0; }
   .project { padding: 1.1rem 1.1rem 0.9rem; }
+  .masthead { flex-direction: column-reverse; gap: 1.5rem; }
+  .portrait { width: 116px; margin-top: 0; }
 }
 
 /* ---------- print: this is the downloadable CV ---------- */
@@ -292,7 +313,8 @@ footer p { margin: 0; }
   h1 { font-size: 20pt; }
   h2 { font-size: 8pt; margin-bottom: 0.9rem; }
   section { margin-bottom: 1.5rem; }
-  .masthead { margin-bottom: 1.6rem; }
+  .masthead { margin-bottom: 1.6rem; gap: 1.5rem; }
+  .portrait { width: 96px; box-shadow: 0 0 0 1px #ddd; margin-top: 0; }
   .lead { font-size: 10.5pt; margin-top: 0.6rem; }
   .location { margin-top: 0.5rem; }
   .links { margin-top: 0.7rem; }
