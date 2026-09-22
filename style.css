@@ -142,6 +142,9 @@ h3 {
 
 .dot { padding: 0 0.2rem; opacity: 0.55; }
 
+/* a neutral, factual note: a closure is not a performance signal */
+.closure { font-style: italic; }
+
 p { margin: 0 0 0.85rem; }
 
 ul { margin: 0 0 0.85rem; padding-left: 1.15rem; }
